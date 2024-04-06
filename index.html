@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
+<title>PLEASE READ IT!</title>
+<body>
+	<audio controls autoplay loop>
+        <source src="FIL.mp3" type="audio/mp3">
+		
+    </audio>
+<div class="container">
+	<label>
+	<div class="heart">
+		<img src="https://upload.wikimedia.org/wikipedia/commons/4/42/Love_Heart_SVG.svg"></img>
+	</div>
+	<input id="messageState" type="checkbox" style="display:none"/>
+	</label>
+	<div class="message">
+		<h1>Hi Erving! ฅ^•⩊•^ฅ </h1>
+		<p>I hope this message finds you well. I've been waiting for the courage to openly express something that has been weighing on my heart for some time now kasi I couldn't keep it to myself any longer. I just have to admit that our small interactions sa school really makes my day. You've captured my heart and I can't resist admitting that I've fallen for you. I know na it's hard for you to believe na mag confess ako but there's something about your presence, your smile, and your eyes that also captured my thoughts completely. I keep on remembering the memories I spent with you years ago and if only I had a chance to confess to you back then gagawin ko kaso nga lang I'm still confused at that time. Thank you na rin kasi ikaw yung natatakbuhan ko lagi kapag may gusto akong i-rant. Don't worry, I don't expect anything from you in return because my intention is to simply express my feelings honestly. We've been friends for years so please understand that my confession doesn't change anything between us unless you want it to, whatever your decision is I will respect it naman. You don't need to reciprocate my feelings. I just need to get this out of my head for my peace of mind. Gusto kita, may chance man o wala, so just let me admire you from afar until my feelings fade away nalang hehe. Take care of yourself and nandito lang ako palagi kapag kailangan mo ng kausap. Wishing you happiness and success, always.
+Please take your time to think about my confession.
+
+<br><br>Thank you for taking the time to read this message (⁠^⁠-⁠^). - 🦌</br>
+</p>
+	</div>
+</div>\
+</head>
+<script>
+    $("#messageState").on("change", (x) => {
+	$(".message").removeClass("openNor").removeClass("closeNor");
+	if ($("#messageState").is(":checked")) {
+		$(".message").removeClass("closed").removeClass("no-anim").addClass("openNor");
+		$(".heart").removeClass("closeHer").removeClass("openedHer").addClass("openHer");
+		$(".container").stop().animate({"backgroundColor": "#f4a886"}, 2000);
+		console.log("Abrindo");
+	} else {
+		$(".message").removeClass("no-anim").addClass("closeNor");
+		$(".heart").removeClass("openHer").removeClass("openedHer").addClass("closeHer");
+		$(".container").stop().animate({"backgroundColor": "#fce4ec"}, 2000);
+		console.log("fechando");
+	}
+});
+
+$(".message").on('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
+	console.log("Animation End");
+	if ($(".message").hasClass("closeNor"))
+		$(".message").addClass("closed");
+	$(".message").removeClass("openNor").removeClass("closeNor").addClass("no-anim");
+});
+
+$(".heart").on('webkitAnimationEnd oanimationend msAnimationEnd animationend', function(e) {
+	console.log("Animation End");
+	if (!$(".heart").hasClass("closeHer"))
+		$(".heart").addClass("openedHer").addClass("beating");
+	else
+		$(".heart").addClass("no-anim").removeClass("beating");
+	$(".heart").removeClass("openHer").removeClass("closeHer");
+});
+</script>
+</body>
+</html>
